@@ -8,12 +8,13 @@ http.createServer(function (req, res) {
 
     var directoryArr = [];
     fs.readdir('./img', function (err, files) {
-        for(let i = 0; i < files.length; i ++){
+        console.log(files);
+        for(let i = 0; i < files.length; i ++){ // let管理作用域
             let currentFilename = files[i];
-            fs.stat('./img' + currentFilename, function (err, stats) {
+            fs.stat('./img/' + currentFilename, function (err, stats) {
                 if(err){
                     return;
-                } if(stats.isDirectory()){
+                } if(stats.isDirectory()){ // 判断是否是文件夹
                     directoryArr.push(currentFilename);
                 }
                 console.log(directoryArr);

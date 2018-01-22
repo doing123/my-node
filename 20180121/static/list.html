@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link rel="stylesheet" href="css/css.css"/>
+</head>
+
+<body>
+<div class="wrap list">
+	<h3 class="title">List页面</h3>
+	<div class="sub-nav">
+		<a href="index.html">首页</a>
+		<a href="list.html" class="active">列表</a>
+
+	</div>
+	<ul id="list"></ul>
+</div>
+<script type="text/javascript">
+function loadList(){
+	var xhr = new XMLHttpRequest();//ActiveXObject();
+	var list = document.getElementById("list");
+	xhr.onreadystatechange = function(){//onreadystatechange不是检测方法，是状态改变后更新的状态
+		if(xhr.status == 200){
+			if(xhr.readyState == 4){//0创建服务，1，打开服务，2发送服务，3，服务器响应，4加载成功
+				var data = JSON.parse(xhr.responseText);
+				if(!data.success){
+					alert("没有数据啦");
+					return false;
+				}
+				for(var i = 0;i < data.data.length;i++){//for循环解释
+					var li = document.createElement("li");
+					li.innerHTML = '<div class="list-box"><a href="#" class="list-img"><img src="'+data.data[i].img+'"/></a>'+
+						'<a href="#"><h4 class="title">'+data.data[i].title+'</h4>'+
+						'<p class="desc">'+data.data[i].description+'</p></a>'+
+						'<p><span class="privilege">'+data.data[i].privilege+'</span></p><p class="price-info">'+
+						'<span class="price"><span class="unit">¥</span>'+data.data[i].price+'</span>'+
+						'<span class="worth">价值¥<span class="strikethough">'+data.data[i].worth+'</span></span>'+
+						'</p><p class="other-info">'+data.data[i].grade+'分<span class="sold">已售'+data.data[i].sold+'</span>'+
+						'</p></div>';
+					list.appendChild(li);
+				}
+			}
+		}
+	}
+	xhr.open("post","list.json?rand="+new Date(),true);
+	xhr.setRequestHeader("Content-Type","application/www-x-form-urlencoded");
+	xhr.send(null);
+}
+loadList();
+var page = 1;
+window.onscroll = function(){
+	var currTop = document.documentElement.scrollTop || document.body.scrollTop;
+	var currHeight = document.documentElement.clientHeight;
+	var pageHeight = document.body.clientHeight;
+	if((pageHeight - currHeight - currTop) < 100){
+		if(page >= 10){
+			alert("我不想加载了");
+			return false;
+		}
+		page += 1;
+		loadList();//ajax加载的时间和page+1的速度不一致
+	}
+}
+</script>
+</body>
+</html>

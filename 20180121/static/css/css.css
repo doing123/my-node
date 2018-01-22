@@ -1,0 +1,142 @@
+body,div,a,p,h3,h4,span,img,ul,li{
+    margin:0 auto;
+    padding:0px;
+}
+body{
+    font-size:12px;
+    font-family:"微软雅黑";
+}
+a{
+    text-decoration:none;
+    color:#444;
+}
+a:hover{
+    text-decoration:none;
+    color:#ff4883;
+}
+img{
+    border:0px;
+}
+.wrap{
+    width:960px;
+}
+.wrap > .title{
+    background: #369;
+    text-align: center;
+    line-height: 50px;
+    color:#fff;
+    font-size: 20px;
+    margin: 0 auto;
+    border-radius: 5px 5px 0px 0px;
+}
+.sub-nav{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background: #eee;
+}
+.sub-nav a{
+    font-size: 18px;
+    padding: 2px 10px;
+    margin: 0px 10px;
+}
+.sub-nav a.active{
+    background: #369;
+    color: #fff;
+    border-radius: 5px;
+}
+.list{
+    margin-top:20px;
+    overflow:hidden;
+}
+.list ul{
+    margin-left:-10px;
+}
+.list li{
+    width:232px;
+    height:302px;
+    padding-left:10px;
+    float:left;
+    padding-bottom:50px;
+    margin-bottom:20px;
+    border-bottom:1px solid #eee;
+    overflow:hidden;
+}
+.list li .list-box{
+    padding:5px;
+    width:220px;
+    height:292px;
+    overflow:hidden;
+    border:1px solid #fff;
+    
+}
+.list li .list-box:hover{
+    border:1px solid #ff4883;
+}
+.list .list-box .list-img{
+    display:block;
+    width:222px;
+    height:136px;
+}
+.list .list-box .list-img img{
+    width:222px;
+    height:136px;
+}
+.list li .list-box .title{
+    color:#444;
+    font-size:16px;
+    max-width:186px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    margin-left:0px;
+    margin-top:10px;
+    line-height:25px;
+}
+.list li .list-box:hover .title{
+    color:#ff4883;
+}
+.list li .list-box .desc{
+    color:#666;
+    line-height:20px;
+    height:40px;
+    overflow:hidden;
+}
+.list li .list-box .desc:hover{
+    text-decoration:underline;
+    color:#005aa0;
+}
+.list li .list-box .privilege{
+    height:20px;
+    line-height:20px;
+    background:#ff4883;
+    color:#fff;
+    display:inline-block;
+    padding:0px 5px;
+    border-radius:2px;
+    margin:2px 0px;
+}
+.list li .list-box .price-info{
+    margin:5px 0px;
+}
+.list li .list-box .price-info .price{
+    color:#ff4883;
+    font-size:24px;
+    margin-right:5px;
+}
+.list li .list-box .price-info .price .unit{
+    font-size:16px;
+}
+.list li .list-box .price-info .worth{
+    color:#999;
+}
+.list li .list-box .price-info .worth .strikethough{
+    text-decoration:line-through;
+}
+.list li .list-box .other-info{
+    color:#005aa0;
+}
+.list li .list-box .other-info .sold{
+    float:right;
+    color:#999;
+}
