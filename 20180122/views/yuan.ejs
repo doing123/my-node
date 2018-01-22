@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise</title>
+</head>
+<body>
+
+<h1>yuan page</h1>
+<ul>
+    <!-- 少一个大括号：
+    SyntaxError: Missing catch or finally after try in F:\GitHub\my-node\20180122\views\yuan.ejs while compiling ejs
+     解决：https://stackoverflow.com/questions/13785740/missing-catch-or-finally-after-try
+
+     -->
+    <% for(var i=0; i<list.length;i++){ %>
+        <li><%= list[i] %></li>
+    <% } %>
+</ul>
+
+</body>
+</html>
