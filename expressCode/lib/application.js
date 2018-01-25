@@ -1,4 +1,5 @@
 var http =require('http');
+var Layer = require('./layer');
 
 var Application = function () {
     // 保存路由
