@@ -1,0 +1,28 @@
+{
+  'name': 'huawei',
+  'price': '2999',
+  'weight': '150',
+  'area': {
+    'city': 'shenzhen'
+  }
+}
+{
+  'name': 'xiaomi',
+  'price': '3999',
+  'weight': '151',
+  'area': {
+    'city': 'beijing'
+  },
+  'color': [
+    'red',
+    'black'
+  ]
+}
+{
+  'name': 'meizu',
+  'price': '4999',
+  'weight': '152',
+  'area': {
+    'city': 'guangzhou'
+  }
+}
