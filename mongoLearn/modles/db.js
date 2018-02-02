@@ -57,4 +57,32 @@ exports.getAllCount = function (collectionName, callback) {
     });
 };
 
+exports.find = function (collectionName, args, callback) {
+    var page = args.page || 1;
+    var pageamount = args.pageamount || 5;
+    var skipNum = pageamount * (args.page - 1) || 0; // 需过滤的条数
+    var sort = args.sort || {};
+
+    console.log('--' + skipNum + '==' + page + '--' + pageamount);
+
+    _connectDB(function (err, db) {
+        var results = [];
+
+        var cursor = db.collection(collectionName).find().skip(skipNum).limit(pageamount).sort(sort);
+        cursor.each(function (err, doc) {
+            if(err){
+                callback(err, null);
+                db.close();
+                return;
+            }
+            if(doc !== null){
+                results.push(doc);
+            } else { // doc为空时就是遍历完成时
+                callback(null, results);
+                db.close();
+            }
+        });
+    });
+};
+
 

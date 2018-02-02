@@ -7,6 +7,9 @@ var express = require('express');
 var app = express();
 var db = require('./modles/db.js');
 
+app.set('view engine', 'ejs');
+app.use(express.static('./public'));
+
 app.get('/add', function (req, res) {
     var arr = ['小红', '小李', '小春', '小刘'];
     db.insertOne('school', {'name': arr[parseInt(Math.random() * 4)]}, function (err, result) {
@@ -51,6 +54,25 @@ app.get('/getAll', function (req, res) {
         console.log(acount);
         res.send(acount.toString()); // 不能传入数字
     });
+});
+
+// 分页查询
+app.get('/', function (req, res) {
+    var page = parseInt(req.query.page);
+
+    // 查询不能把所有数据一次查询处理
+    db.find('school', {'page': page, 'sort': {'name': -1}}, function (err, results) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        db.getAllCount('school', function (acount) {
+            console.log(acount);
+            // 分页数据
+            res.render('index', {'result': results, 'acount': acount / 5});
+        });
+    });
+
 });
 
 app.listen(3000, function () {
