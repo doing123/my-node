@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<body>
+
+<h1>管理系统--编辑页</h1>
+<form action="/doEdit" method="get">
+    <p>学号：<input type="text" readonly="readonly" name="sid" value="<%= student.sid %>"></p>
+    <p>姓名：<input type="text" name="name" value="<%= student.name %>"></p>
+    <p>年龄：<input type="text" name="age" value="<%= student.age %>"></p>
+    <p>性别：
+        <label for="">男<input type="radio" value="男" name="sex" <%if(student.sex === '男'){ %> checked <%}%>></label>
+        <label for="">女<input type="radio" value="女" name="sex" <%if(student.sex === '女'){ %> checked <%}%>></label>
+    </p>
+    <p><input type="submit" class="btn btn-default" value="提交"></p>
+</form>
+
+</body>
+</html>
