@@ -11,13 +11,36 @@ exports.showIndex = function (req, res, next) {
     });
 };
 
+/*Course.create({cid:1001, name:'数学课'});
+Course.create({cid:1002, name:'体育课'});
+Course.create({cid:1003, name:'英语课'});*/
+
 exports.showAdd = function (req, res, next) {
-    res.render('add');
+    Course.find({}, function (err, result) {
+        res.render('add', {
+            allCourse: result
+        });
+    });
+    // res.render('add');
 };
 
 exports.doAdd = function (req, res, next) {
+    var associationArr = [];
+    // 此处要做判断：如果CheckBox选中一个，传过来的association是字符串，两个以上才为数组
+    if(typeof req.query.association === 'string'){
+        associationArr = [parseInt(req.query.association)];
+    } else {
+        for(var i = 0; i< req.query.association.length; i++){
+            associationArr.push(parseInt(req.query.association[i]));
+        }
+    }
+    req.query.course = associationArr;
+    console.log('req.query:' + util.inspect(req.query));
     Student.create(req.query, function () {
-        res.send('提交数据成功');
+        // 添加数据到Student集合的同时，更新Course集合中的数据
+        Course.addStudent(req.query.course, parseInt(req.query.sid), function () {
+            res.send('提交数据成功');
+        });
     });
 };
 
@@ -28,9 +51,16 @@ exports.edit = function (req, res, next) {
             res.send('查询出错，请重新查询');
             return;
         }
-        res.render('edit', {
-            student: result
+        Course.find({}, function (err, course) {
+            console.log(course);
+            res.render('edit', {
+                student: result,
+                allCourse:course
+            });
         });
+        /*res.render('edit', {
+            student: result
+        });*/
     });
 };
 

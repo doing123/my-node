@@ -4,7 +4,8 @@ var studentSchema = new mongoose.Schema({
     sid: Number,
     name: String,
     age: Number,
-    sex: String
+    sex: String,
+    course: [Number]
 });
 
 // 索引
