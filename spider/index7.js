@@ -5,7 +5,7 @@ var fs = require('fs');
 var request = require('request');
 var baseUrl = 'http://www.yikedou.com/';
 var path = require('path');
-var url = baseUrl;
+var url = 'http://www.yikedou.com/';
 var $;
 
 function loadPage(url) {
@@ -36,7 +36,7 @@ function loadPage(url) {
         });
 
         function saveText(data, txtName) {
-            fs.appendFile('./' + (txtName || '2') + '.txt', data, 'utf-8', function (err) {
+            fs.appendFile('./text/' + (txtName || '2') + '.txt', data, 'utf-8', function (err) {
                 if(err){
                     console.log(err);
                 }
@@ -49,14 +49,14 @@ function loadPage(url) {
             request(baseUrl + currImgSrc).pipe(fs.createWriteStream('./image/' + currTitle + extName));
         }
     });
-};
+}
 
 loadPage(url);
 
 setInterval(function () {
-    var nextObj = $('.mPages .current').next();
+    var nextObj = $('.mPgaes .current').next();
     if(nextObj){
         var nextUrl = nextObj.attr('href');
-        loadPage(nextUrl);
+        loadPage(baseUrl + nextUrl);
     }
-}, 1000);
+}, 10000);
