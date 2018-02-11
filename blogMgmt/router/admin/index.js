@@ -30,7 +30,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/articleList', function (req, res, next) {
-    Article.find({title: 'myarticle'}).populate('type').exec(function (err, article) {
+    Article.find({title: '第一篇文章'}).populate('type').exec(function (err, article) {
+        console.log(article);
         res.render('admin/articleList', {article: article});
     });
 });

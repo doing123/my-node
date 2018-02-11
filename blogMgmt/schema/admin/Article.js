@@ -7,7 +7,7 @@ var articleSchema = new mongoose.Schema({
     author: String,
     type: {
         type: Schema.Types.ObjectId,
-        ref: 'ArcticleType'
+        ref: 'ArticleType' // 此处单词拼写错误浪费了半天时间（ MissingSchemaError: Schema hasn't been registered for model "ArcticleType"）
     },
     read: Number,
     createtime: Date,

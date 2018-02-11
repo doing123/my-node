@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var articleTypeSchema = mongoose.Schema({
+var articleTypeSchema = new mongoose.Schema({
     typename: String
 });
 
