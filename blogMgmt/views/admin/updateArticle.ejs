@@ -14,7 +14,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">标题</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="title">
+                                    <input type="text" class="form-control" value="<%= article.title %>" name="title">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">作者</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="author" class="form-control round-input">
+                                    <input type="text" name="author" value="<%= article.author %>" class="form-control round-input">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -56,26 +56,25 @@
                                 <!--访客浏览人数-->
                                 <label class="col-sm-2 col-sm-2 control-label">阅读人数</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" name="read" type="text"
-                                           placeholder="Disabled input here...">
+                                    <input class="form-control" name="read" type="text" value="<%= article.read %>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">点赞</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tag">
+                                    <input type="text" class="form-control" name="tag" value="<%= article.support %>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Tag标签</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tag" placeholder="">
+                                    <input type="text" class="form-control" name="tag" value="<%= article.tag %>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">文章内容</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" name="content" rows="10"></textarea>
+                                    <textarea class="form-control" name="content" rows="10"><%= article.content %></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
