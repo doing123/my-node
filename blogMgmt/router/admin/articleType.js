@@ -22,3 +22,5 @@ router.post('/addType', function (req, res, next) {
         res.send('插入成功');
     });
 });
+
+exports = module.exports = router;

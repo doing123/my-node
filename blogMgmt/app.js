@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 // 设置模板引擎
 app.set('view engine', 'ejs');
 
-// body-parser会影响formidable的使用
+// body-parser设置这一步会影响formidable的使用,fields和files无法获取值
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
 

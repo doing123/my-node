@@ -18,9 +18,11 @@ var userModel = require('../../modules/user/users.js');
 
 // 当访问/admin后，全部都会进入这个模块
 router.use('/', function (req, res, next) {
+    console.log(req.session.userInfos);
     // 权限控制
     if(!req.session.userInfos){
         res.redirect('/login');
+        return;
     }
 
     userModel.isAdmin(req.session.userInfos.name, function (err, result) {
