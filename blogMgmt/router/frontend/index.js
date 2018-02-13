@@ -4,8 +4,6 @@ var router = express.Router();
 
 var articleModel = require('../../modules/frontend/articleModel.js');
 
-var articleTypeModel = require('../../modules/admin/articleType.js');
-
 router.get('/', function (req, res, next) {
     articleModel.findList(req.query, function (err, result) {
         res.render('frontend/index', {article: result});

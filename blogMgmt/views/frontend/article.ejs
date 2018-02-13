@@ -48,34 +48,34 @@
                 <div class="col-xs-12 col-sm-6 col-md-9">
                     <div class="jumbotron">
                         <h3>
-                            <%= art.title%>
+                            <%= article.title%>
                         </h3>
                         <hr>
                         <p style="font-size: 10px">
                             <span style="background:#393939; color:white;border-radius: 3px; padding: 3px 4px">
                                 <span class="glyphicon glyphicon-user"></span>
                                 <span>
-                                    <%= art.author%>
+                                    <%= article.author%>
                                 </span>
                             </span>&nbsp;
                             <span style="background:#FFC219; color:white;border-radius: 3px; padding: 3px 4px">
                                 <span class="glyphicon glyphicon-time"> </span>
                                 <span>
-                                    <%= art.updatetime%>
+                                    <%= article.updatetime%>
                                 </span>
                             </span>&nbsp;
                             <span style="background:#E32551; color:white;border-radius: 3px; padding: 3px 4px">
                                 <span class="glyphicon glyphicon-eye-open"> </span>
                                 <span>(
-                                    <%= art.read%>)</span>
+                                    <%= article.read%>)</span>
                             </span>&nbsp;
                             <span style="background:#73C8A9; color:white;border-radius: 3px; padding: 3px 4px">
                                 <span class="glyphicon glyphicon-comment"> </span>
                                 <span>(
-                                    <%= art.support%>)</span>
+                                    <%= article.support%>)</span>
                             </span>
                         </p>
-                        <%= art.content%>
+                        <%= article.content%>
                     </div>
                     <div class="jumbotron">
 
@@ -88,7 +88,7 @@
                         <div><%= username %></div>
                         <textarea rows="3" class="form-control" placeholder="请输入评论" id="messageContent"></textarea>
                         <br>
-                        <input type="hidden" id="contentId" value="<%= art._id %>">
+                        <input type="hidden" id="contentId" value="<%= article._id %>">
                         <p>
                             <button class="btn btn-primary btn-sm" role="button" id="messageBtn">提交</button>
                         </p>
